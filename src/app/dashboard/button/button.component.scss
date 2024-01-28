@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+  }
+  
+  /* Falls die Elternelemente des .dropdown Margin oder Padding haben, entferne es */
+  /* Beispiel: */
+  
+  .parent-container {
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  button {
+    margin: 20px auto; 
+    padding: 10px 20px;
+    background-color: #84c1ec;
+    color: #0c0e0d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: top;
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+  
+  
+  

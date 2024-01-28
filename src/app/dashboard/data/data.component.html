@@ -1,0 +1,48 @@
+<div class="container" *ngIf="!isLoading; else loadingOverlay">
+  <div class="text-center">
+    <table class="table mx-auto">
+      <thead>
+        <tr>
+          <th (click)="sortByName()">Name</th>
+          <th>Alter</th>
+          <th (click)="sortByBirthdate()">Geburtsdatum</th>
+          <th>Kindergarten</th>
+          <th>Kind Abmelden</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let child of storeService.children">
+          <td>{{ child.name }}</td>
+          <td>{{ getAge(child.birthDate) }}</td>
+          <td>{{ child.birthDate | date:'longDate' }}</td>
+          <td>{{ child.kindergarden.name }}</td>
+            
+          <td>
+            <button (click)="cancelRegistration(child.id)">Kind abmelden</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-row row">
+    <div class="col-12 d-flex justify-content-center">
+      <button
+        [ngClass]="{ 'active': page === currentPage }"
+        (click)="selectPage(page)"
+        type="button"
+        *ngFor="let page of returnAllPages()"
+      >
+        {{ page }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingOverlay>
+  <div class="loading-overlay">
+    <div class="spinner"></div>
+    <div class="message">Lade...</div>
+  </div>
+</ng-template>

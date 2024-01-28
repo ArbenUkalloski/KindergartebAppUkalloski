@@ -1,0 +1,44 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #0066cc;
+    margin-top: 20px;
+}
+
+p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Container für jeden Kindergarten */
+.kindergarten {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center; /* Zentriert die Elemente vertikal */
+}
+
+/* Bild-Stil */
+img {
+    max-width: 200px; /* Passe die Breite nach Bedarf an */
+    height: auto;
+    margin-right: 20px; /* Abstand zwischen Bild und Text */
+}
+
+/* Text-Stil */
+.kindergarten-text {
+    flex-grow: 1; /* Der Text nimmt den verbleibenden Raum ein */
+}
+
+/* Bild und Text nebeneinander */
+.kindergarten img, .kindergarten-text {
+    flex: 1; /* Beide Elemente teilen sich den verfügbaren Platz */
+}

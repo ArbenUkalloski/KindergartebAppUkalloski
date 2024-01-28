@@ -1,0 +1,28 @@
+<form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
+  <h2>Ihr Kind anmelden!</h2>
+
+  <div>
+    <label for="name">Name</label>
+    <input id="name" placeholder="Name" type="text" formControlName="name" required>
+    <div *ngIf="addChildForm.get('name')?.hasError('required') && addChildForm.get('name')?.touched" style="color: rgb(255, 183, 0);">*Name is required.</div>
+  </div>
+
+  <div>
+    <label for="birthDate">Geburtsdatum</label>
+    <input id="birthDate" placeholder="Geburtsdatum" type="date" formControlName="birthDate" required>
+    <div *ngIf="addChildForm.get('birthDate')?.hasError('required') && addChildForm.get('birthDate')?.touched" style="color: rgb(255, 183, 0);">*Birthdate is required.</div>
+  </div>
+
+  <div>
+    <label for="kindergardenId">Kindergarten</label>
+    <select id="kindergardenId" formControlName="kindergardenId" required>
+      <option value="" disabled>Bitte auswählen</option>
+      <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
+        {{ kindergarden.name }}, {{ kindergarden.address }}
+      </option>
+    </select>
+    <div *ngIf="addChildForm.get('kindergardenId')?.hasError('required') && addChildForm.get('kindergardenId')?.touched" style="color: rgb(255, 183, 0);">*Please choose a Kindergarten.</div>
+  </div>
+
+  <button mat-raised-button type="submit" [disabled]="addChildForm.invalid">Erfassen</button>
+</form>
